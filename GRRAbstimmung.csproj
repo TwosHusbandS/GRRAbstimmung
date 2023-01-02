@@ -1,0 +1,45 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>Exe</OutputType>
+    <TargetFramework>net6.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Folder Include="LinuxBuild\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Reddit" Version="1.5.2" />
+    <PackageReference Include="Reddit.AuthTokenRetrieverLib" Version="1.5.2" />
+  </ItemGroup>
+
+  <ItemGroup>
+	  <ContentWithTargetPath Include="ConfigFiles\body.txt">
+		  <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+		  <TargetPath>body.txt</TargetPath>
+	  </ContentWithTargetPath>
+	  <None Include="ConfigFiles\body.txt" />
+
+	  <ContentWithTargetPath Include="ConfigFiles\config.ini">
+		  <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+		  <TargetPath>config.ini</TargetPath>
+	  </ContentWithTargetPath>
+	  <None Include="ConfigFiles\config.ini" />
+
+	  <ContentWithTargetPath Include="ConfigFiles\config.ini.example">
+		  <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+		  <TargetPath>config.ini.example</TargetPath>
+	  </ContentWithTargetPath>
+	  <None Include="ConfigFiles\config.ini.example" />
+
+	  <ContentWithTargetPath Include="ConfigFiles\readme.txt">
+		  <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+		  <TargetPath>readme.txt</TargetPath>
+	  </ContentWithTargetPath>
+	  <None Include="ConfigFiles\readme.txt" />
+  </ItemGroup>
+
+</Project>
