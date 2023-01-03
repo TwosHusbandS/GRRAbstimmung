@@ -55,8 +55,6 @@ Gets TopLevelComments and Replies from the Einreichungs-Post and posts them in t
 ## Main Features
 
 * Gets lots of information from config file
-* Searches for corresponding post which was put together using [DIRM](https://github.com/TwosHusbandS/DasIstRaueberMusik)
-* can post fully automatically via a cronjob
 
 -----
 
