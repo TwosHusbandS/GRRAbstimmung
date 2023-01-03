@@ -46,15 +46,25 @@ namespace GRRAbstimmung.Helper
         /// Main Method of Logging.cs which is called to log stuff.
         /// </summary>
         /// <param name="pLogMessage"></param>
-        public static void Log(string pLogMessage)
+        public static void Log(string pLogMessage, bool WriteToConsole = false)
         {
-            mut.WaitOne();
+            if (WriteToConsole)
+            {
+                Console.WriteLine(pLogMessage);
+            }
 
-            string LogMessage = "[" + DateTime.Now.ToString("yyyy-MM-ddTHH:mm:ss") + "] - " + pLogMessage;
+            try
+            {
 
-            FileHandling.AddToLog(Options.Logfile, LogMessage);
+                mut.WaitOne();
 
-            mut.ReleaseMutex();
+                string LogMessage = "[" + DateTime.Now.ToString("yyyy-MM-ddTHH:mm:ss") + "] - " + pLogMessage;
+
+                FileHandling.AddToLog(Options.Logfile, LogMessage);
+
+                mut.ReleaseMutex();
+            }
+            catch { } 
         }
 
     } // End of Class

@@ -17,8 +17,8 @@ namespace GRRAbstimmung
         {
             this.Karma = pKarma;
             this.Author = pAuthor;
-            this.WrittenToReddit = false;
             this.Content = pContent;
+            WrittenToReddit = false;
         }
     }
 }

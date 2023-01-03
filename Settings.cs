@@ -17,27 +17,8 @@ namespace GRRAbstimmung
             Options.REDDIT_CLIENT_SECRET = Helper.FileHandling.GetXMLTagContent(configFileContent, "REDDIT_CLIENT_SECRET");
             Options.REDDIT_ACCESS_TOKEN = Helper.FileHandling.GetXMLTagContent(configFileContent, "REDDIT_ACCESS_TOKEN");
             Options.REDDIT_REFRESH_TOKEN = Helper.FileHandling.GetXMLTagContent(configFileContent, "REDDIT_REFRESH_TOKEN");
-            Options.SUBREDDIT = Helper.FileHandling.GetXMLTagContent(configFileContent, "SUBREDDIT");
-            Options.FLAIR = Helper.FileHandling.GetXMLTagContent(configFileContent, "FLAIR");
-            Options.REDDIT_POST_TITLE = Helper.FileHandling.GetXMLTagContent(configFileContent, "TITLE");
-            Options.REDDIT_POST_BODY = bodyFileContent;
-            if (Helper.FileHandling.GetXMLTagContent(configFileContent, "DISTINGUISH").ToUpper() == "FALSE")
-            {
-                Options.DISTINGUISH = false;
-            }
-            else
-            {
-                Options.DISTINGUISH = true;
-            }
-            if (Helper.FileHandling.GetXMLTagContent(configFileContent, "STICKY").ToUpper() == "TRUE")
-            {
-                Options.STICKY = true;
-            }
-            else
-            {
-                Options.STICKY = false;
-            }
             Options.COPYCOMMENTSFROM = Helper.FileHandling.GetXMLTagContent(configFileContent, "COPYCOMMENTSFROM");
+            Options.COPYCOMMENTSTO = Helper.FileHandling.GetXMLTagContent(configFileContent, "COPYCOMMENTSTO");
             string tmp = Helper.FileHandling.GetXMLTagContent(configFileContent, "KARMAREQUIRED");
             try
             {
@@ -47,7 +28,15 @@ namespace GRRAbstimmung
             {
                 Options.KARMAREQUIRED = 0;
             }
-
+            string tmpp = Helper.FileHandling.GetXMLTagContent(configFileContent, "DELAY");
+            try
+            {
+                Options.DELAY = Int32.Parse(tmpp);
+            }
+            catch (Exception ex)
+            {
+                Options.DELAY = 11000;
+            }
 
 
             string logstring = "---- read all settings:";
@@ -55,12 +44,8 @@ namespace GRRAbstimmung
             logstring += " Options.REDDIT_CLIENT_SECRET='" + Options.REDDIT_CLIENT_SECRET + "'";
             logstring += " Options.REDDIT_ACCESS_TOKEN='" + Options.REDDIT_ACCESS_TOKEN + "'";
             logstring += " Options.REDDIT_REFRESH_TOKEN='" + Options.REDDIT_REFRESH_TOKEN + "'";
-            logstring += " Options.SUBREDDIT='" + Options.SUBREDDIT + "'";
-            logstring += " Options.REDDIT_POST_TITLE='" + Options.REDDIT_POST_TITLE + "'";
-            logstring += " Options.REDDIT_POST_BODY.Length='" + Options.REDDIT_POST_BODY.Length + "'";
-            logstring += " Options.DISTINGUISH='" + Options.DISTINGUISH + "'";
-            logstring += " Options.STICKY='" + Options.STICKY + "'";
             logstring += " Options.COPYCOMMENTSFROM='" + Options.COPYCOMMENTSFROM + "'";
+            logstring += " Options.COPYCOMMENTSTO='" + Options.COPYCOMMENTSTO + "'";
             logstring += " Options.KARMAREQUIRED='" + Options.KARMAREQUIRED + "'";
             Helper.Logger.Log(logstring);
 

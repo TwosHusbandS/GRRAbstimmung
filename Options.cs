@@ -12,14 +12,10 @@ namespace GRRAbstimmung
         public static string REDDIT_CLIENT_SECRET = "";
         public static string REDDIT_ACCESS_TOKEN = "";
         public static string REDDIT_REFRESH_TOKEN = "";
-        public static bool DISTINGUISH = true;
-        public static bool STICKY = false;
-        public static string SUBREDDIT = "";
-        public static string FLAIR = "";
-        public static string REDDIT_POST_TITLE = "";
-        public static string REDDIT_POST_BODY = "";
         public static string COPYCOMMENTSFROM = "";
+        public static string COPYCOMMENTSTO = "";
         public static int KARMAREQUIRED = 0;
+        public static int DELAY = 11000;
 
         public static string Logfile
         {
@@ -30,6 +26,14 @@ namespace GRRAbstimmung
             }
         }
 
+
+        public static string ErrorFile
+        {
+            get
+            {
+                return Path.Combine(ProjectInstallationPath.TrimEnd(Path.DirectorySeparatorChar), @"Errorrrr.log");
+            }
+        }
 
         public static string Configfile
         {

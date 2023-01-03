@@ -8,21 +8,21 @@ namespace GRRAbstimmung
 {
     internal class TopLevelComment
     {
-        public string TopLevelCommentContent = "";
+        public string Content = "";
         public List<SubLevelComment> ListOfSubs = new List<SubLevelComment>();
-        public bool WrittenToReddit;
+		public bool WrittenToReddit;
 
 		public TopLevelComment(string _TopLevelComment, ref List<TopLevelComment> TLC_List)
 		{
-			TopLevelCommentContent = _TopLevelComment;
-			this.WrittenToReddit = false;
+			Content = _TopLevelComment;
+			WrittenToReddit = false;
 
 			TLC_List.Add(this);
 		}
 
-		public void AddReply(string tmp, string asgg, int ase)
+		public void AddReply(string pContent, string pAuthor, int pKarma)
 		{
-			ListOfSubs.Add(new SubLevelComment(tmp, asgg, ase));
+			ListOfSubs.Add(new SubLevelComment(pContent, pAuthor, pKarma));
 		}
 	}
 }
